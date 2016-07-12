@@ -1,0 +1,185 @@
+@color-medium-gray: #ddd;
+@color-heavy-gray: #333;
+
+@color-overwatch-gray-light: rgb(242,239,244);
+@color-overwatch-orange: rgb(248, 158, 32);
+@color-overwatch-blue-dark: rgb(68, 82, 107);
+
+@color-navigation-menu-dark: #444;
+@color-navigation-menu-dark-border: #262626;
+@color-navigation-menu-dark-text: white;
+
+body#application {
+    background: @color-overwatch-gray-light;
+}
+
+ion-header-bar#application-header {
+    background: @color-overwatch-blue-dark;
+    text-align: center;
+
+    h1#application-header-title {
+        color: white;
+    }
+}
+
+ion-side-menu#application-navigation-menu {
+    background: @color-navigation-menu-dark;
+
+    // use this selector to customize the navigation menu header bar
+    ion-header-bar#application-navigation-menu-header {
+        background: @color-navigation-menu-dark;
+        border-color: @color-navigation-menu-dark-border;
+
+        h1#navigation-menu-title {
+            color: @color-navigation-menu-dark-text;
+        }
+    }
+
+    ion-content#application-navigation-menu-content {
+        ion-item.navigation-menu-item {
+            border: 0px;
+            border-color: @color-navigation-menu-dark-border;
+
+            // use this selector to customize each individual navigation menu item
+            a.item-content {
+                h2.navigation-menu-item-title {
+                    color: @color-navigation-menu-dark-text;
+                }
+
+                div.navigation-menu-item-description {
+                    color: @color-navigation-menu-dark-text;
+                    font-size: .75em;
+                }
+            }
+        }
+    }
+}
+
+ion-content#application-screen-content {
+}
+
+div.clear {
+    clear: both;
+}
+
+div.statbox {
+    margin: 4px;
+    margin-top: 8px;
+    background: @color-overwatch-blue-dark;
+    color: white;
+
+    div.statbox-content {
+        font-size: 1.6em;
+        font-weight: bold;
+    }
+
+    div.statbox-title {
+        font-size: 1em;
+    }
+}
+
+// screen: search
+div#search-screen {
+    .container-title {
+        background: @color-overwatch-orange;
+        color: white;
+        font-size: 1.6em;
+        font-weight: bold;
+        padding: 8px;
+    }
+
+    .container-content {
+        margin-top: 8px;
+    }
+
+    i#toggle-search-button-icon {
+        margin-left: 8px;
+    }
+
+    div#search-form-container {
+        background: white;
+
+        button#search-button {
+            margin-bottom: 3px;
+        }
+    }
+
+    div#search-spinner-container {
+        display: none;
+        text-align: center;
+    }
+
+    div#search-error-container {
+        display: none;
+        text-align: center;
+    }
+
+    div#search-results-container {
+        display: none;
+        margin-bottom: 8px;
+
+        div#player-general-container {
+            div#player-general-container-content {
+                padding-left: 8px;
+                padding-right: 8px;
+
+                div#player-info-container {
+                    float:left;
+                    line-height: 1.2;
+
+                    div#player-username {
+                        font-weight: bold;
+                        font-size: 1.6em;
+                    }
+
+                    div#player-level {
+                        font-size: 1.2em;
+                    }
+
+                    div#player-rank {
+                        font-size: 1.2em;
+                    }
+                }
+
+                div#player-images-container {
+                    float: right;
+                    
+                    img#player-rank-image {
+                        background: black;
+                        width: 80px;
+                    }
+
+                    img#player-avatar-image {
+                        width: 80px;
+                    }
+                }
+            }
+        }
+
+        div#player-quickmatch-container {
+            div#player-quickmatch-container-content {
+                margin-top: 0px;
+
+                div.row {
+                    padding: 0px;
+                }
+            }
+        }
+
+        div#player-competitive-container {
+            div#player-competitive-container-content {
+                margin-top: 0px;
+
+                div.row {
+                    padding: 0px;
+                }
+            }
+        }
+
+        div#player-search-datetimestamp {
+            text-align: right;
+            font-style: italic;
+            padding-right: 8px;
+        }
+    }
+}

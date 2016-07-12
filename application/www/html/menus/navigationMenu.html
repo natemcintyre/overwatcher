@@ -1,0 +1,16 @@
+<div id="navigation-menu" ng-controller="NavigationMenuController as navigationMenuController">
+    <ion-header-bar id="application-navigation-menu-header" align-title="center">
+        <h1 id="navigation-menu-title" class="title"></h1>
+    </ion-header-bar>
+    <ion-content id="application-navigation-menu-content">
+        <ion-list>
+            <!-- currently set to a dark theme -->
+            <ion-item class="item item-dark navigation-menu-item item-icon-left" ng-repeat="menuItem in menuItems" ui-sref="{{menuItem.targetState}}" nav-clear menu-close>
+                    <div class="navigation-menu-item-content">
+                        <i class="icon {{menuItem.icon}}"></i>
+                        <h2 class="navigation-menu-item-title">{{menuItem.title}}</h2>
+                    </div>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</div>

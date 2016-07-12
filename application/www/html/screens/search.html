@@ -1,0 +1,107 @@
+<div id="search-screen" class="screen" ng-controller="SearchScreenController as searchScreenController">
+    <div id="search-form-container">
+        <div class="list">
+            <label class="item item-input item-select">
+                <div class="input-label">Region</div>
+                <select id="search-region" ng-model="search.region">
+                    <option value="na" selected>NA</option>
+                    <option value="eu">EU</option> 
+                </select>
+            </label>
+            <label class="item item-input item-select">
+                <div class="input-label">Platform</div>
+                <select id="search-platform" ng-model="search.platform">
+                    <option value="pc" selected>PC</option>
+                    <option value="psn">Playstation 4</option>
+                    <option value="xbl">Xbox One</option>
+                </select>
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Player Identifier</span>
+                <input id="search-player-identifier" type="text" placeholder="PSN Name, Xbox GamerTag, Battle.net ID" ng-model="search.player">
+            </label>
+            <button id="search-button" class="button button-positive button-full icon-right ion-search" on-tap="searchButtonTapHandler()">Find Player</button>
+        </div>
+    </div>
+    <button id="toggle-search-button" class="button button-clear button-full" on-tap="toggleSearchButtonTapHandler()">{{search.toggleButtonLabel}}<i id="toggle-search-button-icon" class="{{search.toggleButtonIcon}}"></i></button>
+    <div id="search-spinner-container">
+        <ion-spinner id="search-spinner"></ion-spinner>
+    </div>
+    <div id="search-error-container">Unable to find player, please review search parameters and try again.</div>
+    <div id="search-results-container">
+        <div id="player-general-container">
+            <div id="player-general-container-title" class="container-title">General</div>
+            <div id="player-general-container-content" class="container-content">
+                <div id="player-info-container">
+                    <div id="player-username">{{player.username}}</div>
+                    <div id="player-level">Level <b>{{player.level}}</b></div>
+                    <div id="player-rank" ng-if="player.rank">Rank <b>{{player.rank}}</b></div>
+                </div>
+                <div id="player-images-container">
+                    <img id="player-avatar-image" ng-src="{{player.avatarImage}}" />
+                    <img id="player-rank-image" ng-src="{{player.rankImage}}" ng-if="player.rank" />
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div id="player-quickmatch-container">
+            <div id="player-quickmatch-container-title" class="container-title">Quick Match</div>
+            <div id="player-quickmatch-container-content" class="container-content">
+                <div class="row">
+                    <div class="statbox col">
+                        <div class="statbox-content">{{player.quickmatch.winPercentage}}</div>
+                        <div class="statbox-title">Win %</div>
+                    </div>
+                    <div class="statbox col">
+                        <div class="statbox-content">{{player.quickmatch.wins}}</div>
+                        <div class="statbox-title">Wins</div>
+                    </div>
+                    <div class="statbox col">
+                        <div class="statbox-content">{{player.quickmatch.lost}}</div>
+                        <div class="statbox-title">Lost</div>
+                    </div>
+                    <div class="statbox col">
+                        <div class="statbox-content">{{player.quickmatch.gamesPlayed}}</div>
+                        <div class="statbox-title">Total</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="statbox col">
+                        <div class="statbox-content">{{player.quickmatch.hoursPlayed}}</div>
+                        <div class="statbox-title">Hours</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="player-competitive-container" ng-if="player.rank">
+            <div id="player-competitive-container-title" class="container-title">Competitive</div>
+            <div id="player-competitive-container-content" class="container-content">
+                <div class="row">
+                    <div class="statbox col">
+                        <div class="statbox-content">{{player.competitive.winPercentage}}</div>
+                        <div class="statbox-title">Win %</div>
+                    </div>
+                    <div class="statbox col">
+                        <div class="statbox-content">{{player.competitive.wins}}</div>
+                        <div class="statbox-title">Wins</div>
+                    </div>
+                    <div class="statbox col">
+                        <div class="statbox-content">{{player.competitive.lost}}</div>
+                        <div class="statbox-title">Lost</div>
+                    </div>
+                    <div class="statbox col">
+                        <div class="statbox-content">{{player.competitive.gamesPlayed}}</div>
+                        <div class="statbox-title">Total</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="statbox col">
+                        <div class="statbox-content">{{player.competitive.hoursPlayed}}</div>
+                        <div class="statbox-title">Hours</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="player-search-datetimestamp">Current statistics as of: {{player.searchDateTime}}</div>
+    </div>
+</div>
